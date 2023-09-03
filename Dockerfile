@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Copy the static website files to the Nginx web root directory
-COPY ./Portfolio-Website-Complete-CI-CD-pipeline /usr/share/nginx/html
+COPY ./portfolio /usr/share/nginx/html
 
 # Expose port 80 to the outside world
 EXPOSE 80

@@ -1,11 +1,11 @@
-# Use an official Apache runtime as the base image
-FROM httpd:2.4
+# Use an official Nginx runtime as the base image
+FROM nginx:alpine
 
-# Copy your static website files into the container
-COPY ./Portfolio-Website-Complete-CI-CD-pipeline  /usr/local/apache2/htdocs/
+# Copy the static website files to the Nginx web root directory
+COPY ./Portfolio-Website-Complete-CI-CD-pipeline /usr/share/nginx/html
 
-# Expose port 80 (the default HTTP port)
+# Expose port 80 to the outside world
 EXPOSE 80
 
-# Start Apache in the foreground
-CMD ["httpd", "-D", "FOREGROUND"]
+# Start Nginx server when the container starts
+CMD ["nginx", "-g", "daemon off;"]
